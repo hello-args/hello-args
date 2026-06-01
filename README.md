@@ -113,7 +113,10 @@ frameworks:
 
 ---
 
-## 💼 Where I've Broken Prod (Legally)
+<details>
+<summary><b>💼 Where I've Broken Prod (Legally)</b> — <i>click to expand</i></summary>
+
+<br/>
 
 ### 🔴 Red Hat · Sr. Data Scientist · *Apr 2025 – Present*
 
@@ -149,14 +152,22 @@ frameworks:
 
 </details>
 
+</details>
+
 ---
 
 ## 🌍 OSS (I Touch Grass in Repos)
 
-| Project | Patch | Loot drop |
-|---------|-------|-----------|
+*Recent contributions — pulled from GitHub like `git fetch`, but for karma*
+
+<!-- recent-oss:start -->
+| Project | Recent contribution | Loot drop |
+|---------|---------------------|-----------|
 | [**Langfuse**](https://github.com/langfuse/langfuse) | ClickHouse ingestion | +10 observability, boss debuffs "where did it die?" |
 | [**crewAI**](https://github.com/crewAIInc/crewAI) | HITL + silent failure detection | Achievement: *Agents Must Scream* |
+
+<sub>Auto-refreshed from GitHub · pending first workflow run</sub>
+<!-- recent-oss:end -->
 
 ## 📜 Patents (Lawyers Rolled Nat 20 on Paperwork)
 

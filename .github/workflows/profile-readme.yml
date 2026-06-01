@@ -34,8 +34,16 @@ jobs:
           curl -fsSL "https://github-readme-activity-graph.vercel.app/graph?username=hello-args&theme=react-dark&hide_border=true&bg_color=0D1117&color=6366F1&line=F093FB&point=818CF8&area=true&height=200" \
             -o assets/github-activity-graph.svg || true
 
+      - name: Update recent OSS contributions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: hello-args
+        run: python3 .github/scripts/update_recent_oss.py
+
       - name: Commit updated assets
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update profile README assets"
-          file_pattern: assets/*
+          commit_message: "chore: update profile README assets [skip ci]"
+          file_pattern: |
+            assets/*
+            README.md
