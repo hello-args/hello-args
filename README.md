@@ -27,7 +27,11 @@ GenAI · LLM · RAG · Agentic AI · Graph RAG · MCP · vector DBs · LangChain
 
 ![Skill icons](https://skillicons.dev/icons?i=python,pytorch,docker,kubernetes,aws,git,linux&perline=7&theme=dark)
 
-> *If it's not in prod, did you even fine-tune?*
+<div align="center">
+
+![AI jokes](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=400&size=15&duration=2200&pause=8500&color=F093FB&center=true&width=820&lines=If+it%27s+not+in+prod%2C+did+you+even+fine-tune%3F;My+LLMs+have+commit+access.+Help.;%22Just+add+another+agent%22+%E2%80%94+famous+last+words;It+works+on+my+GPU.+Probably.;MCP+server+down.+Agents+are+unionizing.;The+hallucination+is+a+feature+until+QA+finds+it;Prompt+engineering+is+polite+programming;I+don%27t+have+bugs.+Emergent+agent+behavior.;OOM+is+CUDA%27s+way+of+setting+boundaries;This+meeting+could%27ve+been+an+async+tool+call;grep+sanity+%2Fdev%2Fnull+%23+exit+1;Fine-tuning%3A+therapy+for+models+that+won%27t+listen;Your+context+window+is+showing;In+agents+we+trust+%E2%80%94+verify+in+LangSmith;kubectl+apply+-f+hope.yaml+%23+CrashLoopBackOff;RAG+retrieved+the+wrong+doc.+Ship+it.;10+agents+spawned.+3+succeeded.+7+in+retry.;sudo+rm+-rf+%2F+%23+blocked+by+MCP+(phew);Graph+RAG+saves+my+sanity.+Barely.)
+
+</div>
 
 ---
 
