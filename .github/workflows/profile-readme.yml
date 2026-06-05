@@ -40,6 +40,9 @@ jobs:
           GITHUB_USER: hello-args
         run: python3 .github/scripts/update_recent_oss.py
 
+      - name: Generate joke ticker SVG
+        run: python3 .github/scripts/generate_joke_svg.py
+
       - name: Commit updated assets
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
