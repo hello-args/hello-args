@@ -17,19 +17,7 @@ PROFILE_REPO = f"{USER}/hello-args"
 README_PATH = os.environ.get("README_PATH", "README.md")
 MARKER_START = "<!-- recent-oss:start -->"
 MARKER_END = "<!-- recent-oss:end -->"
-MAX_ROWS = 8
-
-LOOT_DROPS = [
-    '+10 observability, boss debuffs "where did it die?"',
-    "Achievement: *Agents Must Scream*",
-    "Loot: merged PR, +5 GitHub street cred",
-    "Debuff removed: silent failure",
-    "Rare drop: maintainer said LGTM",
-    "Side quest complete: docs updated",
-    "Buff: CI green on first try (allegedly)",
-    "Epic: touched prod without incident",
-]
-
+MAX_ROWS = 6
 
 def api_get(url: str, token: str) -> dict | list:
     req = urllib.request.Request(
@@ -42,11 +30,6 @@ def api_get(url: str, token: str) -> dict | list:
     )
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.loads(resp.read().decode())
-
-
-def loot_for(repo: str, title: str) -> str:
-    key = sum(ord(c) for c in repo + title) % len(LOOT_DROPS)
-    return LOOT_DROPS[key]
 
 
 def relative_time(iso: str) -> str:
@@ -134,7 +117,6 @@ def collect_contributions(token: str) -> list[dict]:
                 "repo": repo,
                 "url": f"https://github.com/{repo}",
                 "patch": patch_from_pr(item),
-                "loot": loot_for(repo, item.get("title", "")),
                 "when": relative_time(item.get("updated_at", "")),
                 "sort": item.get("updated_at", ""),
             }
@@ -164,12 +146,12 @@ def collect_contributions(token: str) -> list[dict]:
             if action not in {"opened", "closed", "merged"}:
                 continue
         seen_repos.add(repo)
+        patch = patch_from_event(event)
         rows.append(
             {
                 "repo": repo,
                 "url": f"https://github.com/{repo}",
-                "patch": patch_from_event(event),
-                "loot": loot_for(repo, patch_from_event(event)),
+                "patch": patch,
                 "when": relative_time(event.get("created_at", "")),
                 "sort": event.get("created_at", ""),
             }
@@ -183,24 +165,16 @@ def collect_contributions(token: str) -> list[dict]:
 
 def build_markdown(rows: list[dict]) -> str:
     lines = [
-        "| Project | Recent contribution | Loot drop |",
-        "|---------|---------------------|-----------|",
+        "| Repo | Activity |",
+        "|------|----------|",
     ]
     if not rows:
-        lines.append(
-            "| — | No recent public OSS events in the feed *(yet)* | "
-            "Equip: `git clone` and cause trouble |"
-        )
+        lines.append("| — | No recent public OSS activity yet |")
     else:
         for row in rows:
             project = f"[**{row['repo'].split('/')[-1]}**]({row['url']})"
-            patch = f"{row['patch']} *({row['when']})*" if row["when"] else row["patch"]
-            lines.append(f"| {project} | {patch} | {row['loot']} |")
-    lines.append("")
-    lines.append(
-        f"<sub>Auto-refreshed from GitHub · last sync: "
-        f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}</sub>"
-    )
+            patch = f"{row['patch']} · *{row['when']}*" if row["when"] else row["patch"]
+            lines.append(f"| {project} | {patch} |")
     return "\n".join(lines)
 
 
