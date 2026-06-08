@@ -30,9 +30,9 @@ JOKEs = [
 
 WIDTH = 860
 HEIGHT = 46
-FONT = "JetBrains Mono, ui-monospace, monospace"
+FONT = "Segoe UI, system-ui, sans-serif"
 FONT_SIZE = 15
-COLOR = "#4ADE80"
+COLOR = "#94A3B8"
 STAGGER = 2.8
 HOLD = 8.0
 FADE = 0.4

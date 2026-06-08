@@ -25,13 +25,13 @@ jobs:
         with:
           github_user_name: hello-args
           outputs: |
-            assets/github-contribution-grid-snake.svg?palette=github-dark&color_snake=4ADE80
-            assets/github-contribution-grid-snake.gif?palette=github-dark&color_snake=4ADE80&color_background=0B1220
+            assets/github-contribution-grid-snake.svg?palette=github-dark&color_snake=6366F1
+            assets/github-contribution-grid-snake.gif?palette=github-dark&color_snake=6366F1&color_background=0D1117
 
       - name: Download activity graph
         run: |
           mkdir -p assets
-          curl -fsSL "https://github-readme-activity-graph.vercel.app/graph?username=hello-args&theme=react-dark&hide_border=true&bg_color=0B1220&color=059669&line=4ADE80&point=2DD4BF&area=true&height=200" \
+          curl -fsSL "https://github-readme-activity-graph.vercel.app/graph?username=hello-args&theme=react-dark&hide_border=true&bg_color=0D1117&color=6366F1&line=818CF8&point=A5B4FC&area=true&height=200" \
             -o assets/github-activity-graph.svg || true
 
       - name: Update recent OSS contributions
