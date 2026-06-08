@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="860" height="44" viewBox="0 0 860 44" role="img" aria-label="Rotating AI jokes">
-<text font-family="Fira Code, ui-monospace, monospace" font-size="15" fill="#F093FB" y="31.68">
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="46" viewBox="0 0 860 46" role="img" aria-label="Rotating AI jokes">
+<text font-family="JetBrains Mono, ui-monospace, monospace" font-size="15" fill="#4ADE80" y="33.12">
 <tspan x="252.40" opacity="0">If<animate attributeName="opacity" values="0;0;1;0;0;0" keyTimes="0.000000;0.009025;0.009871;0.050752;0.052632;1.000000" dur="212.800s" repeatCount="indefinite"/></tspan>
 <tspan x="275.05" opacity="0">it&#x27;s<animate attributeName="opacity" values="0;0;1;0;0;0" keyTimes="0.000000;0.003229;0.004075;0.050752;0.052632;1.000000" dur="212.800s" repeatCount="indefinite"/></tspan>
 <tspan x="315.10" opacity="0">not<animate attributeName="opacity" values="0;1;1;0;0;0" keyTimes="0.000000;0.003891;0.004737;0.050752;0.052632;1.000000" dur="212.800s" repeatCount="indefinite"/></tspan>

@@ -29,10 +29,10 @@ JOKEs = [
 ]
 
 WIDTH = 860
-HEIGHT = 44
-FONT = "Fira Code, ui-monospace, monospace"
+HEIGHT = 46
+FONT = "JetBrains Mono, ui-monospace, monospace"
 FONT_SIZE = 15
-COLOR = "#F093FB"
+COLOR = "#4ADE80"
 STAGGER = 2.8
 HOLD = 8.0
 FADE = 0.4

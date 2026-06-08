@@ -1,55 +1,52 @@
 <div align="center">
 
-![Arghyadeep Sarkar](https://capsule-render.vercel.app/api?type=transparent&height=160&text=Arghyadeep%20Sarkar&fontSize=56&fontColor=6366F1&fontAlignY=42&desc=I+teach+robots+to+think...+then+apologize+when+they+hallucinate&descSize=15&descAlignY=72&descAlign=60&fontFamily=Fira%20Code)
+<img src="https://capsule-render.vercel.app/api?type=soft&height=180&color=0:0B1220,100:134E4A&text=hello-args&fontSize=46&fontColor=4ADE80&fontAlignY=38&desc=Arghyadeep%20Sarkar&descSize=22&descAlignY=62&descAlign=60&fontFamily=JetBrains%20Mono&animation=scaleIn" alt="hello-args"/>
 
-![Typing](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=2800&pause=900&color=818CF8&center=true&width=700&lines=Senior+AI+Engineer;RAG+%2B+Agents+%2B+MCP;8%2B+years+shipping+GenAI+to+prod)
-
-<br/>
-
-[![Email](https://img.shields.io/badge/args.sarkar%40gmail.com-6366F1?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0D1117)](mailto:args.sarkar@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/in%2Farghadpsrkr-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0D1117)](https://www.linkedin.com/in/arghadpsrkr)
-[![GitHub](https://img.shields.io/badge/hello--args-F093FB?style=for-the-badge&logo=github&logoColor=white&labelColor=0D1117)](https://github.com/hello-args)
-![Bangalore](https://img.shields.io/badge/Bangalore%2C%20India-FFE66D?style=for-the-badge&labelColor=0D1117)
+![Role](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=17&duration=3000&pause=1000&color=2DD4BF&center=true&width=680&lines=Senior+AI+Engineer;RAG+%C2%B7+Agents+%C2%B7+MCP;shipping+GenAI+to+prod)
 
 <br/>
 
-![Coffee](https://img.shields.io/badge/Coffee-%E2%88%9E%2Fday-8B4513?style=for-the-badge&logo=buymeacoffee&logoColor=white&labelColor=0D1117)
-![RAG](https://img.shields.io/badge/RAG-90%25%2B-F093FB?style=for-the-badge&logo=huggingface&logoColor=white&labelColor=0D1117)
-![CUDA](https://img.shields.io/badge/CUDA-available%3A%20false-FF6B6B?style=for-the-badge&logo=nvidia&logoColor=white&labelColor=0D1117)
+[![Email](https://img.shields.io/badge/args.sarkar%40gmail.com-059669?style=flat-square&logo=gmail&logoColor=white&labelColor=0B1220)](mailto:args.sarkar@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0D9488?style=flat-square&logo=linkedin&logoColor=white&labelColor=0B1220)](https://www.linkedin.com/in/arghadpsrkr)
+[![GitHub](https://img.shields.io/badge/hello--args-14B8A6?style=flat-square&logo=github&logoColor=white&labelColor=0B1220)](https://github.com/hello-args)
+![Bangalore](https://img.shields.io/badge/Bangalore%2C%20IN-34D399?style=flat-square&labelColor=0B1220)
 
 </div>
 
----
-
-**Senior AI/ML Engineer** · I turn *"can't we just ask ChatGPT?"* into systems that actually ship.
-
-GenAI · LLM · RAG · Agentic AI · Graph RAG · MCP · vector DBs · LangChain · Milvus · Kubernetes
-
-![Skill icons](https://skillicons.dev/icons?i=python,pytorch,docker,kubernetes,aws,git,linux&perline=7&theme=dark)
+```text
+┌─ about ─────────────────────────────────────────────────────────────┐
+│  Senior AI/ML Engineer                                              │
+│  I turn "can't we just ask ChatGPT?" into systems that ship.        │
+│                                                                     │
+│  GenAI · LLM · RAG · Agents · MCP · Graph RAG · Milvus · K8s       │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 <div align="center">
 
-![AI jokes](https://raw.githubusercontent.com/hello-args/hello-args/master/assets/jokes-ticker.svg)
+![Stack](https://skillicons.dev/icons?i=python,pytorch,docker,kubernetes,aws,git,linux&perline=7&theme=dark)
+
+![Jokes](https://raw.githubusercontent.com/hello-args/hello-args/master/assets/jokes-ticker.svg)
 
 </div>
 
 ---
 
 <details>
-<summary><b>Work history</b></summary>
+<summary><code>$ cat work-history.log</code></summary>
 
-**Red Hat** · Sr. Data Scientist · *2025 – Present* — multi-agent AI, MCP, enterprise workflows
+| When | Role | Focus |
+|------|------|-------|
+| 2025 – now | **Red Hat** · Sr. Data Scientist | Multi-agent AI, MCP, enterprise workflows |
+| 2022 – 2025 | **HPE** · Sr. Data Scientist | RAG at scale, Mistral-7B LoRA, Milvus |
+| 2021 – 2022 | **Lavorro** · Founding Engineer | AR/VR RAG chatbot |
 
-**HPE** · Sr. Data Scientist · *2022 – 2025* — RAG at scale, Mistral-7B LoRA, Milvus, LangGraph
-
-**Lavorro** · Founding Engineer · *2021 – 2022* — AR/VR RAG chatbot
-
-**Earlier:** Lincode Labs · DataVal Analytics · Vital Labs · Deuglo
+`Earlier:` Lincode Labs · DataVal Analytics · Vital Labs · Deuglo
 
 </details>
 
 <details>
-<summary><b>Patents</b></summary>
+<summary><code>$ ls patents/</code></summary>
 
 - **US 63/223,911** — MTBF improvement for semiconductor fab (NLP)
 - **US 63/223,905** — Smart-Bot for chip manufacturing
@@ -58,7 +55,7 @@ GenAI · LLM · RAG · Agentic AI · Graph RAG · MCP · vector DBs · LangChain
 
 ---
 
-### Recent OSS
+### `git log --oneline --author=hello-args` · Recent OSS
 
 <!-- recent-oss:start -->
 | Repo | Activity |
@@ -69,18 +66,16 @@ GenAI · LLM · RAG · Agentic AI · Graph RAG · MCP · vector DBs · LangChain
 
 ---
 
-### Activity
-
-![Activity graph](https://raw.githubusercontent.com/hello-args/hello-args/master/assets/github-activity-graph.svg)
-
-![Contribution snake](https://raw.githubusercontent.com/hello-args/hello-args/master/assets/github-contribution-grid-snake.svg)
-
----
-
 <div align="center">
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,30:6366F1,60:F093FB,100:0D1117&height=80&section=footer&text=Thanks+for+stopping+by&fontSize=16&fontColor=FFFFFF)
+![Activity](https://raw.githubusercontent.com/hello-args/hello-args/master/assets/github-activity-graph.svg)
 
-<sub>May your loss converge and your context never overflow.</sub>
+![Snake](https://raw.githubusercontent.com/hello-args/hello-args/master/assets/github-contribution-grid-snake.svg)
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1220,50:134E4A,100:0B1220&height=70&section=footer&text=exit+0&fontSize=18&fontColor=4ADE80&fontFamily=JetBrains%20Mono" alt="exit 0"/>
+
+<sub><code>loss → 0 · gradients → stable · context → within limits</code></sub>
 
 </div>
