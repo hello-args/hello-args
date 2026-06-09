@@ -1,6 +1,6 @@
 <div align="center">
 
-![hello-args](assets/terminal-banner.png)
+![banner](assets/banner.svg)
 
 </div>
 

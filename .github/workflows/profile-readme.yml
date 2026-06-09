@@ -40,10 +40,8 @@ jobs:
           GITHUB_USER: hello-args
         run: python3 .github/scripts/update_recent_oss.py
 
-      - name: Generate terminal banner and joke ticker SVGs
+      - name: Generate banner and joke ticker SVGs
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq librsvg2-bin
           python3 .github/scripts/generate_terminal_banner.py
           python3 .github/scripts/generate_joke_svg.py
 
