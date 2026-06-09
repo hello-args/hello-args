@@ -164,17 +164,16 @@ def collect_contributions(token: str) -> list[dict]:
 
 
 def build_markdown(rows: list[dict]) -> str:
-    lines = [
-        "| Repo | Activity |",
-        "|------|----------|",
-    ]
+    lines: list[str] = []
     if not rows:
-        lines.append("| — | No recent public OSS activity yet |")
+        lines.append("│ —          NO RECENT PUBLIC OSS ACTIVITY YET")
     else:
         for row in rows:
-            project = f"[**{row['repo'].split('/')[-1]}**]({row['url']})"
-            patch = f"{row['patch']} · *{row['when']}*" if row["when"] else row["patch"]
-            lines.append(f"| {project} | {patch} |")
+            name = row["repo"].split("/")[-1].upper()
+            project = f"[**{name}**]({row['url']})"
+            patch = row["patch"].upper()
+            when = f" · *{row['when']}*" if row["when"] else ""
+            lines.append(f"│ {project}  `{patch}`{when}")
     return "\n".join(lines)
 
 

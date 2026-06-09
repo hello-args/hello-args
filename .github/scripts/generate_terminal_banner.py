@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate terminal-style startup banner SVG for GitHub profile README."""
+"""Generate digital terminal banner SVG for GitHub profile README."""
 
 from __future__ import annotations
 
@@ -8,75 +8,73 @@ import os
 
 OUT = os.environ.get("OUTPUT", "assets/terminal-banner.svg")
 
-FONT = "JetBrains Mono, Fira Code, ui-monospace, monospace"
-BG = "#0D1117"
-BORDER = "#334155"
-TITLE_BG = "#161B22"
+WIDTH = 820
+HEIGHT = 220
+PAD = 28
+
+BG = "#020617"
+PANEL = "#0B1220"
+BORDER = "#164E63"
 CYAN = "#22D3EE"
-GREEN = "#4ADE80"
+CYAN_DIM = "#0891B2"
+GREEN = "#34D399"
 DIM = "#64748B"
-MUTED = "#475569"
-RED = "#F87171"
-YELLOW = "#FACC15"
-GREEN_DOT = "#4ADE80"
+MUTED = "#334155"
+ACCENT = "#A78BFA"
 
-# figlet standard "hello-args" (complete 6-line logo)
-LOGO = [
-    " _          _ _                                 ",
-    "| |__   ___| | | ___         __ _ _ __ __ _ ___ ",
-    "| '_ \\ / _ \\ | |/ _ \\ _____ / _` | '__/ _` / __|",
-    "| | | |  __/ | | (_) |_____| (_| | | | (_| \\__ \\",
-    "|_| |_|\\___|_|_|\\___/       \\__,_|_|  \\__, |___/",
-    "                                      |___/     ",
-]
+FONT = "JetBrains Mono, Fira Code, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
 
-LOGO_SIZE = 12
-LOGO_LH = 14
-PROMPT = "$ ./hello-args --profile"
+PROMPT = "./hello-args --profile"
 TAGLINES = [
-    "senior_ai_engineer.sys · online",
-    "building genai that ships...",
-    "rag · agents · mcp",
+    "SENIOR_AI_ENGINEER.SYS",
+    "BUILDING_GENAI_THAT_SHIPS",
+    "RAG.AGENTS.MCP.ONLINE",
 ]
-META = "args.sarkar@gmail.com · Bangalore · MIT"
-
-TITLE_H = 34
-PAD_X = 24
-PAD_TOP = TITLE_H + 18
-CHAR_W = LOGO_SIZE * 0.62
+NAME = "ARGHYADEEP SARKAR"
+META = "args.sarkar@gmail.com // BANGALORE // MIT"
 
 
-def logo_width() -> int:
-    return max(len(line.rstrip("\n")) for line in LOGO)
-
-
-def svg_width() -> int:
-    return max(820, int(logo_width() * CHAR_W + PAD_X * 2 + 48))
-
-
-def svg_height() -> int:
-    logo_h = len(LOGO) * LOGO_LH
-    return PAD_TOP + logo_h + 128
-
-
-def logo_block(width: int) -> str:
-    lines: list[str] = []
-    y = PAD_TOP
-    logo_w = logo_width() * CHAR_W
-    x = (width - logo_w) / 2
-    for row in LOGO:
-        safe = html.escape(row.rstrip("\n").rstrip())
+def scanlines() -> str:
+    lines = []
+    for y in range(0, HEIGHT, 6):
         lines.append(
-            f'<tspan x="{x:.1f}" y="{y}" fill="{CYAN}" font-weight="700" '
-            f'font-size="{LOGO_SIZE}">{safe}</tspan>'
+            f'<rect x="0" y="{y}" width="{WIDTH}" height="1" fill="#22D3EE" opacity="0.04"/>'
         )
-        y += LOGO_LH
-    return "\n      ".join(lines)
+    return "\n  ".join(lines)
+
+
+def grid_dots() -> str:
+    dots = []
+    for x in range(20, WIDTH, 40):
+        for y in range(30, HEIGHT, 40):
+            dots.append(
+                f'<circle cx="{x}" cy="{y}" r="0.5" fill="{BORDER}" opacity="0.25"/>'
+            )
+    return "\n  ".join(dots)
+
+
+def corner_brackets() -> str:
+    m = 10
+    s = 18
+    c = CYAN_DIM
+    return f"""
+  <path d="M{m} {m+s} V{m} H{m+s}" fill="none" stroke="{c}" stroke-width="1.5"/>
+  <path d="M{WIDTH-m-s} {m} H{WIDTH-m} V{m+s}" fill="none" stroke="{c}" stroke-width="1.5"/>
+  <path d="M{m} {HEIGHT-m-s} V{HEIGHT-m} H{m+s}" fill="none" stroke="{c}" stroke-width="1.5"/>
+  <path d="M{WIDTH-m-s} {HEIGHT-m} H{WIDTH-m} V{HEIGHT-m-s}" fill="none" stroke="{c}" stroke-width="1.5"/>"""
+
+
+def status_bar() -> str:
+    y = 14
+    return f"""
+  <text x="{PAD}" y="{y}" font-family="{FONT}" font-size="10" fill="{MUTED}">SYS://HELLO-ARGS</text>
+  <text x="{WIDTH - PAD}" y="{y}" font-family="{FONT}" font-size="10" fill="{GREEN}" text-anchor="end">[ONLINE]</text>
+  <rect x="{PAD}" y="22" width="{WIDTH - PAD * 2}" height="1" fill="{BORDER}" opacity="0.8"/>"""
 
 
 def tagline_animation(index: int, count: int, slot: float) -> str:
     cycle = slot * count
-    fade = min(0.3, slot * 0.12)
+    fade = min(0.28, slot * 0.1)
     start = index * slot
     show = start + fade
     hide = start + slot - fade
@@ -97,59 +95,77 @@ def tagline_animation(index: int, count: int, slot: float) -> str:
     )
 
 
-def tagline_tspans(y: int) -> str:
-    slot = 3.6
+def tagline_block(y: int) -> str:
+    slot = 3.2
     count = len(TAGLINES)
-    parts: list[str] = []
+    parts = []
     for i, line in enumerate(TAGLINES):
         safe = html.escape(line)
         anim = tagline_animation(i, count, slot)
         initial = "1" if i == 0 else "0"
         parts.append(
-            f'<tspan x="{PAD_X}" y="{y}" fill="{DIM}" font-size="13" '
-            f'opacity="{initial}">{safe}{anim}</tspan>'
+            f'<tspan x="{PAD + 18}" y="{y}" font-family="{FONT}" font-size="13" '
+            f'fill="{CYAN_DIM}" letter-spacing="1.5" opacity="{initial}">'
+            f"{safe}{anim}</tspan>"
         )
-    return "\n      ".join(parts)
+    cursor = (
+        '<animate attributeName="opacity" values="1;1;0;0" '
+        'keyTimes="0;0.49;0.5;1" dur="0.9s" repeatCount="indefinite"/>'
+    )
+    parts.append(
+        f'<tspan x="{PAD + 330}" y="{y}" font-family="{FONT}" font-size="13" '
+        f'fill="{CYAN}">_{cursor}</tspan>'
+    )
+    return "\n    ".join(parts)
 
 
-def cursor_x(tagline: str) -> float:
-    return PAD_X + len(tagline) * 7.8 + 6
+def progress_bar(y: int) -> str:
+    x = PAD
+    w = WIDTH - PAD * 2
+    return f"""
+  <rect x="{x}" y="{y}" width="{w}" height="3" fill="{MUTED}" rx="1"/>
+  <rect x="{x}" y="{y}" width="{int(w * 0.72)}" height="3" fill="{CYAN}" rx="1" opacity="0.9">
+    <animate attributeName="width" values="{int(w * 0.55)};{int(w * 0.82)};{int(w * 0.55)}"
+      dur="4s" repeatCount="indefinite"/>
+  </rect>"""
 
 
 def generate_svg() -> str:
-    width = svg_width()
-    height = svg_height()
-    logo_bottom = PAD_TOP + len(LOGO) * LOGO_LH
-    prompt_y = logo_bottom + 22
-    tagline_y = prompt_y + 24
-    meta_y = tagline_y + 52
-    cursor_blink = (
-        '<animate attributeName="opacity" values="1;1;0;0" '
-        'keyTimes="0;0.49;0.5;1" dur="1s" repeatCount="indefinite"/>'
-    )
-    longest_tag = max(TAGLINES, key=len)
+    title_y = 58
+    name_y = 78
+    prompt_y = 118
+    tag_y = 148
+    meta_y = 182
 
     return f"""<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}"
-  viewBox="0 0 {width} {height}" role="img" aria-label="hello-args terminal banner"
-  overflow="visible">
-  <rect width="{width}" height="{height}" rx="8" fill="{BG}"/>
-  <rect x="1" y="1" width="{width - 2}" height="{height - 2}" rx="7"
-    fill="none" stroke="{BORDER}" stroke-width="1.5"/>
-  <rect x="1" y="1" width="{width - 2}" height="{TITLE_H}" rx="7" fill="{TITLE_BG}"/>
-  <line x1="1" y1="{TITLE_H}" x2="{width - 1}" y2="{TITLE_H}" stroke="{BORDER}" stroke-width="1"/>
-  <circle cx="{PAD_X}" cy="17" r="5" fill="{RED}"/>
-  <circle cx="{PAD_X + 18}" cy="17" r="5" fill="{YELLOW}"/>
-  <circle cx="{PAD_X + 36}" cy="17" r="5" fill="{GREEN_DOT}"/>
-  <text font-family="{FONT}" font-size="11" fill="{MUTED}" x="{PAD_X + 58}" y="21">hello-args — profile</text>
-  <text font-family="{FONT}" font-size="11" fill="{MUTED}" x="{width - PAD_X}" y="21" text-anchor="end">[ready]</text>
-  <text font-family="{FONT}" xml:space="preserve">
-    {logo_block(width)}
-    <tspan x="{PAD_X}" y="{prompt_y}" fill="{GREEN}" font-size="13">{html.escape(PROMPT)}</tspan>
-    {tagline_tspans(tagline_y)}
-    <tspan x="{cursor_x(longest_tag):.1f}" y="{tagline_y}" fill="{CYAN}" font-size="13" opacity="1">▌{cursor_blink}</tspan>
-    <tspan x="{PAD_X}" y="{meta_y}" fill="{MUTED}" font-size="11">{html.escape(META)}</tspan>
+<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}"
+  viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-label="hello-args digital banner">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="{WIDTH}" height="{HEIGHT}" fill="{BG}"/>
+  <rect x="1.5" y="1.5" width="{WIDTH - 3}" height="{HEIGHT - 3}" fill="{PANEL}" stroke="{BORDER}" stroke-width="1.5" rx="4"/>
+  {grid_dots()}
+  {scanlines()}
+  {corner_brackets()}
+  {status_bar()}
+  <text x="{WIDTH / 2}" y="{title_y}" font-family="{FONT}" font-size="12" fill="{CYAN_DIM}"
+    text-anchor="middle" letter-spacing="2" style="font-variant: small-caps">hello-args</text>
+  <text x="{WIDTH / 2}" y="{name_y}" font-family="{FONT}" font-size="13" fill="{CYAN}"
+    text-anchor="middle" letter-spacing="3" filter="url(#glow)">{html.escape(NAME)}</text>
+  {progress_bar(88)}
+  <text x="{PAD}" y="{prompt_y}" font-family="{FONT}" font-size="13" fill="{GREEN}">&gt; {html.escape(PROMPT)}</text>
+  <text x="{PAD}" y="{tag_y}" font-family="{FONT}" font-size="13" fill="{DIM}">&gt;</text>
+  <text>
+    {tagline_block(tag_y)}
   </text>
+  <text x="{PAD}" y="{meta_y}" font-family="{FONT}" font-size="10" fill="{MUTED}" letter-spacing="1">{html.escape(META)}</text>
 </svg>
 """
 
@@ -159,7 +175,7 @@ def main() -> None:
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(svg)
-    print(f"Wrote {OUT} ({svg_width()}x{svg_height()})")
+    print(f"Wrote {OUT} ({WIDTH}x{HEIGHT})")
 
 
 if __name__ == "__main__":

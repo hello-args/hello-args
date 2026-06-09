@@ -29,10 +29,13 @@ JOKEs = [
 ]
 
 WIDTH = 860
-HEIGHT = 46
-FONT = "JetBrains Mono, Fira Code, ui-monospace, monospace"
-FONT_SIZE = 14
+HEIGHT = 52
+FONT = "JetBrains Mono, Fira Code, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+FONT_SIZE = 13
 COLOR = "#22D3EE"
+PROMPT_COLOR = "#34D399"
+BG = "#0B1220"
+BORDER = "#164E63"
 STAGGER = 2.8
 HOLD = 8.0
 FADE = 0.4
@@ -49,7 +52,7 @@ def word_positions(words: list[str]) -> list[tuple[str, float]]:
     space = FONT_SIZE * 0.35
     widths = [len(w) * CHAR_W for w in words]
     total = sum(widths) + space * max(len(words) - 1, 0)
-    x = (WIDTH - total) / 2
+    x = 108 + max(0, (WIDTH - 124 - total) / 2)
     out: list[tuple[str, float]] = []
     for word, w in zip(words, widths):
         out.append((word, x))
@@ -95,11 +98,17 @@ def generate_svg(jokes: list[str]) -> str:
     import random
 
     rng = random.Random(rng_seed)
+    text_y = HEIGHT * 0.68
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" '
         f'viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-label="Rotating AI jokes">',
-        f'<text font-family="{FONT}" font-size="{FONT_SIZE}" fill="{COLOR}" y="{HEIGHT * 0.72}">',
+        f'<rect width="{WIDTH}" height="{HEIGHT}" fill="{BG}" rx="4"/>',
+        f'<rect x="1" y="1" width="{WIDTH - 2}" height="{HEIGHT - 2}" fill="none" '
+        f'stroke="{BORDER}" stroke-width="1" rx="3"/>',
+        f'<text font-family="{FONT}" font-size="{FONT_SIZE}" fill="{PROMPT_COLOR}" '
+        f'x="16" y="{text_y}">&gt; stdout:</text>',
+        f'<text font-family="{FONT}" font-size="{FONT_SIZE}" fill="{COLOR}" x="108" y="{text_y}">',
     ]
 
     for j, joke in enumerate(jokes):
