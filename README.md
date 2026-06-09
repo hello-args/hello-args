@@ -1,47 +1,53 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=rounded&height=200&color=0:1E293B,100:4338CA&text=Arghyadeep%20Sarkar&fontSize=44&fontColor=FFFFFF&fontAlignY=40&desc=Senior%20AI%20Engineer%20%C2%B7%20Bangalore&descSize=16&descAlignY=68&fontFamily=Segoe%20UI&animation=fadeIn" alt="Arghyadeep Sarkar"/>
-
-![Role](https://readme-typing-svg.demolab.com?font=Segoe+UI&weight=500&size=16&duration=3200&pause=1200&color=94A3B8&center=true&width=620&lines=Building+GenAI+that+ships;RAG+%C2%B7+Agents+%C2%B7+MCP;LLMs+in+production%2C+not+just+notebooks)
+![hello-args](https://raw.githubusercontent.com/hello-args/hello-args/master/assets/terminal-banner.svg)
 
 <br/>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=social&logo=linkedin)](https://www.linkedin.com/in/arghadpsrkr)
-[![Email](https://img.shields.io/badge/Email-args.sarkar%40gmail.com-D14836?style=social&logo=gmail)](mailto:args.sarkar@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-hello--args-181717?style=social&logo=github)](https://github.com/hello-args)
+```text
+$ links --open
+```
+
+[![LinkedIn](https://img.shields.io/badge/linkedin-connect-0E7490?style=flat-square&logo=linkedin&logoColor=22D3EE&labelColor=020617)](https://www.linkedin.com/in/arghadpsrkr)
+[![Email](https://img.shields.io/badge/mail-args.sarkar%40gmail.com-0891B2?style=flat-square&logo=gmail&logoColor=22D3EE&labelColor=020617)](mailto:args.sarkar@gmail.com)
+[![GitHub](https://img.shields.io/badge/github-hello--args-06B6D4?style=flat-square&logo=github&logoColor=22D3EE&labelColor=020617)](https://github.com/hello-args)
 
 </div>
 
----
-
-### About
-
-I build **LLM, RAG, and agentic AI** systems for production — from multi-agent orchestration with **MCP** to large-scale retrieval with **Milvus** and **LangGraph**.
+```text
+// about.init()
+// ─────────────────────────────────────────────────────────
+//  Senior AI/ML Engineer
+//  I build LLM, RAG & agentic AI for production.
+//  MCP · Milvus · LangGraph · multi-agent systems
+```
 
 ![Stack](https://skillicons.dev/icons?i=python,pytorch,docker,kubernetes,aws,git,linux&perline=7&theme=dark)
 
 <details>
-<summary><b>Experience</b></summary>
+<summary><code>// experience.log</code></summary>
 
-| | |
-|---|---|
-| **Red Hat** · Sr. Data Scientist · *2025 – Present* | Multi-agent AI, MCP, enterprise workflows |
-| **HPE** · Sr. Data Scientist · *2022 – 2025* | RAG at scale, Mistral-7B LoRA, Milvus |
-| **Lavorro** · Founding Engineer · *2021 – 2022* | AR/VR RAG chatbot |
-| *Earlier* | Lincode Labs · DataVal · Vital Labs · Deuglo |
-
-</details>
-
-<details>
-<summary><b>Patents</b></summary>
-
-- **US 63/223,911** — MTBF improvement for semiconductor fab (NLP)
-- **US 63/223,905** — Smart-Bot for chip manufacturing
+```text
+[2025-now]  Red Hat      · Sr. Data Scientist · multi-agent AI, MCP
+[2022-2025] HPE          · Sr. Data Scientist · RAG, Mistral-7B LoRA
+[2021-2022] Lavorro      · Founding Engineer  · AR/VR RAG chatbot
+[earlier]   Lincode · DataVal · Vital Labs · Deuglo
+```
 
 </details>
 
 <details>
-<summary><b>Hot takes</b></summary>
+<summary><code>// patents.db</code></summary>
+
+```text
+US 63/223,911 · MTBF improvement for semiconductor fab (NLP)
+US 63/223,905 · Smart-Bot for chip manufacturing
+```
+
+</details>
+
+<details>
+<summary><code>// hot_takes.sh</code></summary>
 
 <div align="center">
 
@@ -53,7 +59,9 @@ I build **LLM, RAG, and agentic AI** systems for production — from multi-agent
 
 ---
 
-### Recent open source
+```text
+// oss.recent()
+```
 
 <!-- recent-oss:start -->
 | Repo | Activity |
@@ -63,6 +71,10 @@ I build **LLM, RAG, and agentic AI** systems for production — from multi-agent
 <!-- recent-oss:end -->
 
 ---
+
+```text
+// contributions.grid
+```
 
 <div align="center">
 
