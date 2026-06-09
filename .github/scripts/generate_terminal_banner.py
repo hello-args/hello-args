@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
+import hashlib
 import html
 import os
+import re
 
 OUT = os.environ.get("OUTPUT", "assets/banner.svg")
 
@@ -170,12 +172,31 @@ def generate_svg() -> str:
 """
 
 
+def bump_readme_cache_buster(svg: str) -> None:
+    readme = os.environ.get("README_PATH", "README.md")
+    if not os.path.exists(readme):
+        return
+    digest = hashlib.sha256(svg.encode("utf-8")).hexdigest()[:10]
+    with open(readme, encoding="utf-8") as f:
+        content = f.read()
+    updated = re.sub(
+        r"!\[banner\]\(assets/banner\.svg(?:\?v=[^)]+)?\)",
+        f"![banner](assets/banner.svg?v={digest})",
+        content,
+    )
+    if updated != content:
+        with open(readme, "w", encoding="utf-8") as f:
+            f.write(updated)
+        print(f"Bumped README cache buster to v={digest}")
+
+
 def main() -> None:
     svg = generate_svg()
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(svg)
     print(f"Wrote {OUT} ({WIDTH}x{HEIGHT})")
+    bump_readme_cache_buster(svg)
 
 
 if __name__ == "__main__":
