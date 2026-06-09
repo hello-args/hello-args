@@ -31,7 +31,7 @@ TAGLINES = [
     "RAG.AGENTS.MCP.ONLINE",
 ]
 NAME = "ARGHYADEEP SARKAR"
-META = "args.sarkar@gmail.com // BANGALORE // MIT"
+META = "args.sarkar@gmail.com // BANGALORE // RED HAT"
 
 
 def scanlines() -> str:
