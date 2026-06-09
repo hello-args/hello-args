@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import html
 import os
+import subprocess
 
 OUT = os.environ.get("OUTPUT", "assets/terminal-banner.svg")
 
@@ -170,12 +171,28 @@ def generate_svg() -> str:
 """
 
 
+def export_png(svg_path: str) -> None:
+    png_path = svg_path.replace(".svg", ".png")
+    try:
+        subprocess.run(
+            ["rsvg-convert", "-w", str(WIDTH), svg_path, "-o", png_path],
+            check=True,
+            capture_output=True,
+        )
+        print(f"Wrote {png_path}")
+    except FileNotFoundError:
+        print("PNG export skipped (rsvg-convert not installed)")
+    except subprocess.CalledProcessError as exc:
+        print(f"PNG export failed: {exc.stderr.decode().strip()}", file=__import__("sys").stderr)
+
+
 def main() -> None:
     svg = generate_svg()
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(svg)
     print(f"Wrote {OUT} ({WIDTH}x{HEIGHT})")
+    export_png(OUT)
 
 
 if __name__ == "__main__":

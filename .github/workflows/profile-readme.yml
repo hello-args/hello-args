@@ -42,6 +42,8 @@ jobs:
 
       - name: Generate terminal banner and joke ticker SVGs
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq librsvg2-bin
           python3 .github/scripts/generate_terminal_banner.py
           python3 .github/scripts/generate_joke_svg.py
 
